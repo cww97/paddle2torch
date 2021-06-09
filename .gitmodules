@@ -1,0 +1,6 @@
+[submodule "PaddleClas"]
+	path = PaddleClas
+	url = https://github.com/PaddlePaddle/PaddleClas.git
+[submodule "onnx2X"]
+	path = onnx2X
+	url = https://github.com/BBuf/onnx2X.git
