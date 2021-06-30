@@ -11,6 +11,8 @@ from PaddleClas.ppcls.modeling.architectures.resnet_vd import ResNet50_vd
 
 
 def export_model_to_ONNX():
+    ''' https://github.com/PaddlePaddle/Paddle2ONNX/blob/release/0.6/README_zh.md
+    '''
     model = ResNet50_vd()
     pretrain_path = '/root/paddle/models/ResNet50_vd_10w_pretrained.pdparams'
     state_dict = paddle.load(pretrain_path)
@@ -31,6 +33,7 @@ def compare_results(paddle_model, onnx_file):
     ort_outs = ort_sess.run(None, ort_inputs)
     print("Exported model has been predict by ONNXRuntime!")
 
+    import ipdb; ipdb.set_trace()
     paddle_outs = paddle_model(x)
 
     np.testing.assert_allclose(ort_outs[0], paddle_outs.numpy(), rtol=1.0, atol=1e-05)
