@@ -368,12 +368,7 @@ def main():
         timm_state_dict[torch_key] = torch.Tensor(state_dict[keys_map[torch_key]])
     model = timm.create_model('resnet50d')
     model.load_state_dict(timm_state_dict)
-    # import ipdb; ipdb.set_trace()
-    
-
-    
-    print("?")
-
+    return model
 
 if __name__ == '__main__':
     main()
